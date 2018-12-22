@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="FlyweightDesignPattern" basedir="." default="test">
+	<property environment="env" />
+	<path id="test.classpath">		
+		<pathelement path="bin/src" />		
+	</path>
+
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+
+
+	<target name="build" depends="clean">
+		<mkdir dir="bin" />
+		<mkdir dir="bin/src" />		
+	</target>
+
+	<target name="compile" depends="build">
+		<javac srcdir="src" destdir="bin/src" includeantruntime="false" />		
+	</target>
+
+	<target name="test" depends="compile">
+		<java classname="flyweight.Main">
+			<classpath>
+				<path refid="test.classpath" />
+			</classpath>			
+		</java>
+	</target>	
+	
+</project>
